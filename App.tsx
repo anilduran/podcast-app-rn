@@ -21,6 +21,10 @@ import SubscribedPodcastListsScreen from './screens/SubscribedPodcastListsScreen
 import LikedPodcastsScreen from './screens/LikedPodcastsScreen';
 import SearchScreen from './screens/SearchScreen';
 import UserDetailScreen from './screens/UserDetailScreen';
+import Ionicons from '@expo/vector-icons/Ionicons'
+import ChangeUsernameScreen from './screens/ChangeUsernameScreen';
+import ChangeEmailScreen from './screens/ChangeEmailScreen';
+import ChangePasswordScreen from './screens/ChangePasswordScreen';
 
 export type RootStackParamList = {
   Home: undefined
@@ -45,6 +49,9 @@ export type RootStackParamList = {
   SubscribedPodcastListDetailScreen: undefined
   UserDetail: undefined
   Search: undefined
+  ChangeUsername: undefined
+  ChangeEmail: undefined
+  ChangePassword: undefined
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -77,6 +84,9 @@ export default function App() {
         <Stack.Screen name='SubscribedPodcastListDetailScreen' component={SubscribedPodcastListsScreen} />
         <Stack.Screen name='Search' component={SearchScreen} />
         <Stack.Screen name='UserDetail' component={UserDetailScreen} />
+        <Stack.Screen name='ChangeUsername' component={ChangeUsernameScreen} options={{ title: 'Change Username' }} />
+        <Stack.Screen name='ChangeEmail' component={ChangeEmailScreen} options={{ title: 'Change Email' }} />
+        <Stack.Screen name='ChangePassword' component={ChangePasswordScreen} options={{ title: 'Change Password' }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -84,10 +94,11 @@ export default function App() {
 
 function Tabs() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name='Feed' component={FeedScreen} />
-      <Tab.Screen name='Library' component={LibraryScreen} />
-      <Tab.Screen name='Profile' component={ProfileScreen} />
+    <Tab.Navigator screenOptions={{ tabBarInactiveTintColor: 'gray', tabBarActiveTintColor: 'orangered' }}>
+      <Tab.Screen name='Feed' component={FeedScreen} options={{ tabBarIcon: ({ focused, color, size }) => <Ionicons name={focused ? 'home' : 'home-outline'} color={color} size={size} /> }} />
+      <Tab.Screen name='Search' component={SearchScreen} options={{ tabBarIcon: ({ focused, size, color}) => <Ionicons name={focused ? 'search-circle' : 'search-circle-outline' } color={color} size={size} /> }} />
+      <Tab.Screen name='Library' component={LibraryScreen} options={{ tabBarIcon: ({ focused, color, size}) => <Ionicons name={focused ? 'book' : 'book-outline'} color={color} size={size} /> }} />
+      <Tab.Screen name='Profile' component={ProfileScreen} options={{ tabBarIcon: ({ focused, color, size }) => <Ionicons name={focused ? 'person' : 'person-outline'} color={color} size={size} /> }} />
     </Tab.Navigator>
   )
 }

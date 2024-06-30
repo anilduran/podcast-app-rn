@@ -1,10 +1,17 @@
-import { View, Text, Pressable, StyleSheet, Image } from 'react-native'
+import {
+  View,
+  Text,
+  Pressable,
+  StyleSheet,
+  Image,
+  ScrollView
+} from 'react-native'
 import React, { useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import Ionicons from '@expo/vector-icons/Ionicons'
+import PodcastItem from '../components/PodcastItem'
 
 export default function PodcastsScreen() {
-
   const navigation = useNavigation()
 
   useEffect(() => {
@@ -18,25 +25,23 @@ export default function PodcastsScreen() {
   })
 
   return (
-    <View style={styles.container}>
-      
-      <Pressable 
-      style={({ pressed }) => [styles.podcastContainer, pressed ? { opacity: 0.5 } : undefined]}
-      onPress={() => navigation.navigate('ListenPodcast')}>
-        <Image source={require('../assets/images/swiftui.jpg')} style={styles.podcastImage} />
-        <View>
-          <Text style={styles.podcastTitleText}>Podcast Title</Text>
-          <Text style={styles.podcastDescriptionText}>Lorem ipsum dolor sit amet consectetur.</Text>
-        </View>
-      </Pressable>
+    <ScrollView>
+      <View style={styles.container}>
 
-    </View>
+        <PodcastItem />
+        <PodcastItem />
+        <PodcastItem />
+        <PodcastItem />
+        <PodcastItem />
+      </View>
+    </ScrollView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16
+    padding: 16,
+    rowGap: 10
   },
   podcastContainer: {
     flexDirection: 'row',
