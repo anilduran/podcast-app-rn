@@ -17,8 +17,11 @@ export default function PodcastListsScreen() {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Pressable onPress={() => navigation.navigate('CreatePodcastList')}>
-          <Ionicons name='add' color='blue' size={24} />
+        <Pressable
+          onPress={() => navigation.navigate('CreatePodcastList')}
+          style={({ pressed }) => [pressed ? { opacity: 0.5 } : undefined]}
+        >
+          <Ionicons name='add' color='orangered' size={20} />
         </Pressable>
       )
     })
@@ -39,7 +42,5 @@ const styles = StyleSheet.create({
   container: {
     padding: 16,
     rowGap: 10
-  },
-  
+  }
 })
-

@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   podcastCardTitle: {
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 16,
   },
   podcastCardText: {
     fontSize: 12,

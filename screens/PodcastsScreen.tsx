@@ -17,8 +17,8 @@ export default function PodcastsScreen() {
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <Pressable onPress={() => navigation.navigate('CreatePodcast')}>
-          <Ionicons name='add' color='blue' size={24} />
+        <Pressable onPress={() => navigation.navigate('CreatePodcast')} style={({pressed}) => [pressed ? {opacity: 0.5} : undefined]}>
+          <Ionicons name='add' color='orangered' size={20} />
         </Pressable>
       )
     })

@@ -1,9 +1,9 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native'
 import React from 'react'
 
-export default function PrimaryButton() {
-  return <Pressable style={({ pressed}) => [styles.button, pressed ? { opacity: 0.5} : undefined]}>
-    <Text style={styles.buttonText}>Click</Text>
+export default function PrimaryButton({text, style}: {text: string, style?: object}) {
+  return <Pressable style={({ pressed}) => [styles.button, style, pressed ? { opacity: 0.5} : undefined]}>
+    <Text style={styles.buttonText}>{text}</Text>
   </Pressable>
 }
 
