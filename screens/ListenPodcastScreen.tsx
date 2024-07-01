@@ -52,7 +52,7 @@ export default function ListenPodcastScreen() {
   return (
     <View style={styles.container}>
       <ScrollView>
-        <View style={{ padding: 16 }}>
+        <View style={{ padding: 16, rowGap: 10 }}>
           <Image
             source={require('../assets/images/react_native.png')}
             style={styles.image}
@@ -151,12 +151,10 @@ const styles = StyleSheet.create({
     borderRadius: 6
   },
   titleText: {
-    marginTop: 20,
     fontWeight: 'bold',
     fontSize: 18
   },
   descriptionText: {
-    marginTop: 5,
     fontSize: 14,
     color: 'gray'
   },

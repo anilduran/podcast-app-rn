@@ -67,8 +67,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Main'>
-        <Stack.Screen name='SignIn' component={SignInScreen} options={{ title: 'Sign In' }} />
-        <Stack.Screen name='SignUp' component={SignUpScreen} options={{ title: 'Sign Up' }} />
+        <Stack.Screen name='SignIn' component={SignInScreen} options={{ title: 'Sign In', headerShown: false }} />
+        <Stack.Screen name='SignUp' component={SignUpScreen} options={{ title: 'Sign Up', headerShown: false }} />
         <Stack.Screen name='Main' component={Tabs} options={{ headerShown: false }} />
         <Stack.Screen name='PodcastLists' component={PodcastListsScreen} options={{ title: 'Podcast Lists' }} />
         <Stack.Screen name='CreatePodcastList' component={CreatePodcastListScreen} options={{ title: 'Create Podcast List' }} />
